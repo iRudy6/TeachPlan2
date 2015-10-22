@@ -1,0 +1,39 @@
+.cust-list {
+	font-size: 100px;
+}
+
+.cust-list-small {
+	font-size: 50px;
+}
+
+.text-male{
+	color:#78C3F9;
+}
+
+.text-female{
+	color:#FB6C9C;
+}
+
+.status-0{
+	color:#606060;
+}
+.status-1{
+	color:#83F583;
+}
+.status-2{
+	color:#F5D04C;
+}
+
+.status-3{
+	color:#F37863;
+}
+
+
+.extra-space{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.pointer{
+	cursor: pointer;
+}

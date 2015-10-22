@@ -1,0 +1,15 @@
+		<nav>
+		  <ul class="pagination">
+		    <li ng-class="{ active : lesson == lessonsCtrl.currentLesson }" data-ng-repeat="lesson in lessonsCtrl.lessons ">
+		    	<a class="pointer" ng-click="lessonsCtrl.lessonChanged(lesson)">
+		    	<span>{{lesson.name}}</span><br/>
+		    	<span>{{lesson.beginDate| date:"HH:mm"}} - {{lesson.endDate| date:"HH:mm"}}</span>
+		    </a>
+			</li>
+		  </ul>
+		</nav>  
+		<div ng-if="!lessonsCtrl.showGroup">  
+			<span>Début: {{lessonsCtrl.currentLesson.beginDate| date:"dd/MM/yyyy 'à' HH:mm"}}</span>
+			<span>Fin: {{lessonsCtrl.currentLesson.endDate| date:"dd/MM/yyyy 'à' HH:mm"}}</span>
+
+		</div>

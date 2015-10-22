@@ -1,0 +1,35 @@
+<section data-ng-controller="GroupsController as groupsCtrl" ng-init="groupsCtrl.init()">
+    <section data-ng-controller="PeopleByGroupController as peopleByGroupCtrl">
+        <div class="modal-header">
+            <div class="pull-right">
+                <button type="button" class="btn btn-danger text-center" ng-click="ok()" ng-disabled="createPersonForm.$invalid">
+                    <i class="glyphicon glyphicon-remove"></i><br>    
+                </button>
+            </div>
+            <h3 class="modal-title">Manage people</h3>
+        </div>
+        </div>
+        <div class="modal-body">
+            <div class="row">                
+                 <div class="col-sm-6">               
+                    <h4>Not inside</h4>                    
+                    <a data-ng-repeat="person in peopleByGroupCtrl.people  | filterNotInGroupId:groupsCtrl.group._id" data-ng-click="peopleByGroupCtrl.addGroup(person,groupsCtrl.group)" class="list-group-item list-group-item-success ">                            
+                        <h4 class="list-group-item-heading "><i class="glyphicon glyphicon-plus"></i> {{person.lastname}} {{person.firstname}}</h4>
+                    </a>
+                </div>
+               <div class="col-sm-6"> 
+                    <h4>Inside the group</h4>                                  
+                    <a data-ng-repeat="person in peopleByGroupCtrl.people  | filterByGroupId:groupsCtrl.group._id" 
+                    data-ng-click="peopleByGroupCtrl.removeGroup(person,groupsCtrl.group)" 
+                    class="list-group-item list-group-item-danger">        
+                        <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-minus"></i> {{person.lastname}} {{person.firstname}}</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+<!--         <div class="modal-footer">
+            <button class="btn btn-success" type="button" ng-click="ok()" ng-disabled="createPersonForm.$invalid">Close</button>
+        </div>
+ -->
+    </section>
+</section>

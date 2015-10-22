@@ -1,0 +1,38 @@
+
+    <a class="list-group-item pointer" ng-click="lessonsCtrl.updateStatus(lessonsCtrl.currentLesson, student.person, student.status)">
+        <div class="row">
+            <h4 class="cust-list-small text-center">
+                <i class="glyphicon glyphicon-user" ng-class="lessonsCtrl.statusClass(student.status)"></i>            
+            </h4>
+            <span style="text-align:center; top:0px; position:absolute" ng-class="lessonsCtrl.statusClass(student.status)">
+                {{lessonsCtrl.statusName(student.status)}}
+            </span>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4>{{student.person.lastname}} </h4>                
+                <h4>{{student.person.firstname}}</h4>
+            </div>
+        </div>
+    </a>
+
+
+
+
+<!-- <section data-ng-controller="LessonsUpdateController as lessonUpdateCtrl">
+    <a class="list-group-item pointer" ng-click="lessonUpdateCtrl.updateStatus(lessonsCtrl.currentLesson, person, status)">
+        <div class="row">
+            <h4 class="cust-list-small text-center">
+                <i class="glyphicon glyphicon-user" ng-class="statusClass({{student.status}})"></i>            
+            </h4>
+            <span style="text-align:center; top:0px; position:absolute" ng-class="statusClass({{status}})">{{statusName(student.status)}}</span>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h4>{{person.lastname}} </h4>                
+                <h4>{{person.firstname}}</h4>
+            </div>
+        </div>
+    </a>
+</section>
+ -->

@@ -1,0 +1,48 @@
+    <div class="list-group">
+        <div class="col-xs-6 col-sm-3 extra-space" data-ng-repeat="person in peopleCtrl.people | filter:searchText">
+            <!-- <a data-ng-href="#!/people/{{person._id}}" class="list-group-item"> -->
+            <a ng-click="peopleCtrl.modalUpdate('lg', person)" class="list-group-item">
+                <h4 class="cust-list text-center">
+                    <i class="glyphicon glyphicon-user cust-list" ng-class="{'text-male': {{person.genre=='garçon'}}, 'text-female': {{person.genre=='fille'}} }"></i>
+                </h4>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <h4>{{person.lastname}} {{person.firstname}} </h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!people.$resolved || people.length">
+        Pas encore d'étudiants? Pourquoi ne pas <a href="/#!/people/create">en créer un</a>?
+    </div>
+
+
+
+
+
+
+
+
+
+<!-- <section data-ng-controller="PeopleController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>{{person.firstname}} {{person.lastname}}</h1>
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == person.user._id))">
+		<a class="btn btn-primary" href="/#!/people/{{person._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="person.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="person.user.displayName"></span>
+		</em>
+	</small>
+</section> -->

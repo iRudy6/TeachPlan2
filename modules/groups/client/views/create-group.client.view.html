@@ -1,0 +1,64 @@
+<!-- <section ng-controller="GroupsController">
+  <div class="page-header">
+    <h1>Nouveau groupe</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="groupForm" class="form-horizontal" ng-submit="create(groupForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="name">Name</label>
+          <input name="name" type="text" ng-model="name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="groupForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">group name is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section> -->
+<section data-ng-controller="GroupsCreateController as groupsCreateCtrl">
+ <div class="modal-header">
+            <h3 class="modal-title">New group</h3>
+ </div>
+<div class="modal-body">
+    <form name="createGroupForm">
+        <fieldset>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <i class="glyphicon glyphicon-user cust-list"></i>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="controls">
+<!--                             <input type="text" data-ng-model="groupsCreateCtrl.name" id="name" class="form-control" placeholder="Name" required>
+ -->
+                           <input name="name" type="text" ng-model="groupsCreateCtrl.name" id="name" class="form-control" placeholder="Name" required>
+                            <div ng-messages="createGroupForm.name.$error" role="alert">
+                              <p class="help-block error-text" ng-message="required">group name is required.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div data-ng-show="error" class="text-center text-danger">                    
+                    <div class="alert alert-danger" role="alert">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="groupsCreateCtrl.create(createGroupForm.$valid);ok()" ng-disabled="createGroupForm.$invalid">Save & close</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+</section>

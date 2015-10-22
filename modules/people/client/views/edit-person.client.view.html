@@ -1,0 +1,108 @@
+<section data-ng-controller="PeopleEditController as peopleEditCtrl">
+
+ <div class="modal-header">
+            <h3 class="modal-title">{{person.firstname}} {{person.lastname}}</h3>
+ </div>
+<div class="modal-body">
+    <form name="updatePersonForm">
+        <fieldset>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <i class="glyphicon glyphicon-user cust-list" ng-class="{'text-primary': person.phone, 'text-pink': !person.phone }"></i>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="firstname">Prénom: </label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="person.firstname" id="firstname" class="form-control" placeholder="Firstname" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="lastname">Nom: </label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="person.lastname" id="lastname" class="form-control" placeholder="Lastname" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="genre">Genre</label>
+                        <div class="controls">
+                            <select data-ng-model="person.genre" id="genre" class="form-control" ng-options="genre.name as genre.name for genre in genres">
+                                <option value=""> -- sexe --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="person.email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="phone">Phone</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="person.phone" id="phone" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="background-color:#4E4E4E;">
+                        <h4><u>Personne de contact:<u></h4>
+                        <div class="form-group">
+                            <label class="control-label" for="contact1_firstname" >Prénom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="person.contact1_firstname" id="contact1_firstname" class="form-control" placeholder="Firstname" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" >Nom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="person.contact1_lastname" id="contact1_lastname" class="form-control" placeholder="Lastname" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" >Téléphone:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="person.contact1_phone" id="contact1_phone" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color:#4E4E4E;">
+                        <h4><u>Personne de contact:<u></h4>
+                        <div class="form-group">
+                            <label class="control-label" for="contact2_firstname" >Prénom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="person.contact2_firstname" id="contact2_firstname" class="form-control" placeholder="Firstname" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" >Nom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="person.contact2_lastname" id="contact2_lastname" class="form-control" placeholder="Lastname" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" >Téléphone:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="person.contact2_phone" id="contact2_phone" class="form-control" placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-ng-show="error" class="text-danger">                    
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-danger" ng-click="peopleEditCtrl.remove(person);ok()">
+        Delete
+    </button>
+    <button class="btn btn-success" type="button" ng-click="peopleEditCtrl.update(person);ok()" ng-disabled="updatePersonForm.$invalid">Update & close</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+
+</section>

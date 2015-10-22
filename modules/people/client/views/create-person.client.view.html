@@ -1,0 +1,104 @@
+<section data-ng-controller="PeopleCreateController as peopleCreateCtrl">
+ <div class="modal-header">
+            <h3 class="modal-title">New person</h3>
+ </div>
+<div class="modal-body">
+    <form name="createPersonForm">
+        <fieldset>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <i class="glyphicon glyphicon-user cust-list"></i>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="firstname">Prénom:</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="peopleCreateCtrl.firstname" id="firstname" class="form-control" placeholder="Prénom" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="lastname">Nom:</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="peopleCreateCtrl.lastname" id="lastname" class="form-control" placeholder="Nom" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="genre">Sexe:</label>
+                        <div class="controls">
+                            <select data-ng-model="peopleCreateCtrl.genre" id="genre" class="form-control" ng-options="genre.name as genre.name for genre in genres">
+                                <option value=""> -- sexe --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="email">Email:</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="peopleCreateCtrl.email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="phone">Téléphone</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="peopleCreateCtrl.phone" id="phone" class="form-control" placeholder="Téléphone">
+                        </div>
+                    </div>
+                    <div style="background-color:#4E4E4E;">
+                        <h3>Personne de contact:</h3>
+                        <div class="form-group">
+                            <label class="control-label" for="firstname">Nom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="peopleCreateCtrl.contact1_firstname" id="contact1_firstname" class="form-control" placeholder="Prénom" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="lastname">Prénom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="peopleCreateCtrl.contact1_lastname" id="contact1_lastname" class="form-control" placeholder="Nom" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="phone">Téléphone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="peopleCreateCtrl.contact1_phone" id="contact1_phone" class="form-control" placeholder="Téléphone">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color:#4E4E4E;">
+                        <h3>Personne de contact:</h3>
+                        <div class="form-group">
+                            <label class="control-label" for="firstname">Nom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="peopleCreateCtrl.contact2_firstname" id="contact2_firstname" class="form-control" placeholder="Prénom" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="lastname">Prénom:</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="peopleCreateCtrl.contact2_lastname" id="contact2_lastname" class="form-control" placeholder="Nom" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="phone">Téléphone</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="peopleCreateCtrl.contact2_phone" id="contact2_phone" class="form-control" placeholder="Téléphone">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-ng-show="error" class="text-center text-danger">                    
+                    <div class="alert alert-danger" role="alert">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="peopleCreateCtrl.create();ok()" ng-disabled="createPersonForm.$invalid">Save & close</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+</section>

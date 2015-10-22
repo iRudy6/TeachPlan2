@@ -1,0 +1,40 @@
+<!-- <section ng-controller="GroupsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Groupes</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="group in groups" ui-sref="groups.view({groupId: group._id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="group.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="group.user.displayName"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="group.title"></h4>
+      <p class="list-group-item-text" ng-bind="group.content"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="groups.$resolved && !groups.length">
+    No groups yet, why don't you <a ui-sref="groups.create">create one</a>?
+  </div>
+</section>
+ -->
+
+<section data-ng-controller="GroupsController as groupsCtrl"  >
+    <div class="page-header text-center">
+        <h1>Groups <span class="label label-info">{{ groupsCtrl.groups.length }}</span></h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 text-center pull-right">
+            <button type="button" class="btn btn-success text-center" ng-click="groupsCtrl.modalCreateGroup('lg')">
+                <i class="glyphicon glyphicon-user"></i><br>
+                New Group
+            </button>
+        </div>
+    </div>
+<groups-list></groups-list>
+
+    <div class="alert alert-warning text-center" data-ng-hide="!groups.$resolved || groups.length">
+      No Groups yet, why don't you <a href="/#!/groups/create">create one</a>?
+    </div>
+</section>

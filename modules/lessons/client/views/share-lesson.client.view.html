@@ -1,0 +1,42 @@
+<section data-ng-controller="LessonsController as lessonsCtrl">
+ <div id="print-content">
+	 <div class="modal-header">
+	            <h3 class="modal-title">{{group.name}} - {{currentLesson.name}}</h3>
+	 </div>
+	<div class="modal-body">
+		<label style="width:100px;">Professeur:</label><span> {{lessonsCtrl.user.displayName}}</span>
+		<br/>
+		<label style="width:100px;">Debut: </label><span>{{currentLesson.beginDate| date:"dd/MM/yyyy 'à' HH:mm"}}</span>
+		<br/>
+		<label style="width:100px;">Fin:   </label><span>{{currentLesson.endDate| date:"dd/MM/yyyy 'à' HH:mm"}}</span>
+
+		<table class="table table-bordered">
+			<thead>
+				<th>Nom</th>
+				<th>Prénom</th>
+				<th>Status</th>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="student in currentLesson.students">			
+					<td>
+						{{student.person.lastname}}
+					</td>
+					<td>
+						{{student.person.firstname}}
+					</td>
+					<td>
+						{{lessonsCtrl.statusName(student.status)}}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="lessonsCtrl.printReport();ok()">Imprimer</button>
+    <button class="btn btn-success" type="button" ng-click="lessonsCtrl.sendReport(currentGroup._id);ok()">Envoyer</button>
+    <button class="btn btn-warning" type="button" ng-click="ok()">Cancel</button>
+</div>
+</section>
+

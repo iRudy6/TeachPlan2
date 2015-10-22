@@ -1,0 +1,50 @@
+<section data-ng-controller="LessonsCreateController as lessonsCreateCtrl">
+ <div class="modal-header">
+            <h3 class="modal-title">Nouvelle leçon dans le groupe {{currentGroup.name}} </h3>
+ </div>
+<div class="modal-body">
+    <form name="createLessonForm">
+        <fieldset>
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    <i class="glyphicon glyphicon-user cust-list"></i>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="lessonsCreateCtrl.name" id="name" class="form-control" placeholder="Name" required autofocus>
+                        </div>
+                    </div>
+                </div>
+                <div data-ng-show="error" class="text-center text-danger">                    
+                    <div class="alert alert-danger" role="alert">
+                        <strong data-ng-bind="error"></strong>
+                    </div>
+                </div>
+            </div>
+<!--             <div class="row">
+                <div class="col-sm-3">
+                    <ft-form-group ft-floating-label>
+                        <label>From</label>
+                        <input type="text" ng-model="lessonsCreateCtl.beginDate" class="form-control"
+                            fm-datepicker fm-datepicker-format="yyyy-mm-dd" fm-datepicker-h-position="left" />
+                    </ft-form-group>
+                </div>
+                <div class="col-sm-3">
+                    <ft-form-group ft-floating-label>
+                        <label>To</label>
+                        <input type="text" ng-model="lessonsCreateCtrl.endDate" class="form-control"
+                            fm-datepicker fm-datepicker-format="yyyy-mm-dd" fm-datepicker-h-position="left" />
+                    <ft-form-group ft-floating-label>
+                </div>
+            </div> -->
+        </fieldset>
+    </form>
+</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="lessonsCreateCtrl.createShortLesson(currentGroup._id);ok()" ng-disabled="createGroupForm.$invalid">Save & close</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+</section>

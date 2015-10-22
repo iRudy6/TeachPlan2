@@ -1,0 +1,28 @@
+<section data-ng-controller="PeopleController as peopleCtrl">
+    <div class="page-header">
+        <h1>People</h1>
+    </div>
+    <!-- Search person -->
+    <!-- <div class="form-group">
+        <input type="text" ng-model="search" typeahead="person as person.lastname for person in people | filter:$viewValue | limitTo:8" class="form-control" typeahead-on-select="peopleSearch($item)" placeholder="Search a person">
+    </div> -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group input-group-lg">
+                <input ng-model="searchText" type="text" class="form-control" placeholder="Search a person" >
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <button type="button" class="btn btn-success text-center" ng-click="peopleCtrl.modalCreate('lg')">
+                <i class="glyphicon glyphicon-user"></i><br>
+                New Person
+            </button>
+        </div>
+    </div>
+    <!-- end -->
+    <people-list></people-list>
+    </br></br>
+</section>

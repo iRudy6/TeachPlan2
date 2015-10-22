@@ -1,0 +1,19 @@
+<div class="list-group">        
+    <!-- <div class="col-xs-6 col-sm-4 col-md-3 extra-space" data-ng-repeat="group in groupsCtrl.groups | filterByUserId:groupsCtrl.user._id"> -->
+    <div class="col-xs-6 col-sm-4 col-md-3 extra-space" data-ng-repeat="group in groupsCtrl.groups">
+        <a ui-sref="groups.view({groupId: group._id})"  class="list-group-item">
+       <!--  <a data-ng-click="groupsCtrl.init(group)" class="list-group-item"> -->
+            <h4 class="cust-list-small text-center">
+                <i class="glyphicon glyphicon-home"></i>
+            </h4>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h4>{{group.name}} </h4>
+                    <div ng-if="groupsCtrl.userAdmin">
+                        <h6>Créé par: {{group.user.displayName}}</h6>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

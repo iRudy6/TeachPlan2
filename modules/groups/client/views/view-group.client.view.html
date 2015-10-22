@@ -1,0 +1,113 @@
+<!-- <section ng-controller="GroupsController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="group.name"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == group.user._id">
+    <a class="btn btn-primary" ui-sref="groups.edit({articleId: group._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="article.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="group.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="group.category"></p>
+</section> -->
+
+<section data-ng-controller="GroupsController as groupsCtrl" ng-init="groupsCtrl.init()" >
+  <div class="page-header">
+    <h1>{{groupsCtrl.group.name}} Details</h1>
+
+
+  </div>
+
+    <section data-ng-controller="LessonsController as lessonsCtrl" ng-init="lessonsCtrl.init()">
+    <div class="pull-right">
+      <div class="btn-toolbar">
+        <div class="btn-group ">
+          <button type="button" class="btn btn-primary btn-large text-center" ng-click="lessonsCtrl.modalShare('lg', lessonsCtrl.currentLesson, groupsCtrl.group)" ng-if="!lessonsCtrl.showGroup">
+              <i class="glyphicon glyphicon-share"></i><br>    
+          </button>
+           <button type="button" class="btn btn-primary btn-large text-center" ng-click="groupsCtrl.modalAddGroup('lg')">
+              <i class="glyphicon glyphicon-user"></i><br>    
+          </button>
+           <button type="button" class="btn btn-primary btn-large text-center" ng-click="groupsCtrl.modalCreatePerson('lg')">
+              <i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-user"></i><br>    
+          </button>
+        </div>
+        <div class="btn-group">
+           <button type="button" class="btn btn-success btn-large text-center" ng-click="lessonsCtrl.modalCreateShortLesson('lg', groupsCtrl.group)">
+              <i class="glyphicon glyphicon-plus"></i><i class="glyphicon glyphicon-calendar"></i><br>    
+          </button>
+           <button type="button" class="btn btn-success btn-large text-center" ng-click="lessonsCtrl.createSpeedLesson(groupsCtrl.group._id)">
+              <i class="glyphicon glyphicon-check"></i><br>    
+          </button>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-danger btn-large text-center" ng-click="groupsCtrl.modalUpdate('lg', groupsCtrl.group)">
+              <i class="glyphicon glyphicon-edit"></i><br>    
+          </button>         
+           <button type="button" class="btn btn-danger btn-large text-center" ng-click="lessonsCtrl.showGroupAndClear()">
+              <i class="glyphicon glyphicon-arrow-left"></i><br>    
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <section data-ng-controller="DatepickerCtrl as dateCtrl">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="input-group">
+              <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-primary btn-large" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+
+    </div>
+  </section>
+
+<!--         <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+ -->    </div>
+    <list-lessons></list-lessons>
+    <!-- <div ng-if="lessonsCtrl.showGroup">   -->
+      <div class="list-group">
+          <div data-ng-repeat="student in lessonsCtrl.currentLesson.students" 
+               class="col-xs-6 col-sm-4 col-md-2 extra-space col-height">
+            <people-lesson></people-lesson>            
+          </div>
+        <div class="clearfix" />
+          
+      </div>
+    <!-- </div> -->
+    <div data-ng-if="lessonsCtrl.showGroup" data-ng-controller="PeopleByGroupController as peopleByGroupCtrl">
+        <h3>People inside this group</h3>
+          <people-sorted></people-sorted>
+    </div>
+
+    </section>
+
+ </section>
